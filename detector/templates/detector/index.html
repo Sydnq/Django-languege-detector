@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Django Language Detector{% endblock title %}
+
+{% block content %}
+	<div class="container">
+		
+		<form method="post" class="uniForm" action=".">
+		    {{ form|crispy }}
+		    {% csrf_token %}
+		    <button type="submit" class="btn btn-primary">Detect</button>
+		</form>
+
+		{% if detected_language %}
+			<br>
+			<div class="card bg-info text-white">
+			    <div class="card-body"><h1>The Text is in {{ detected_language }}</h1></div>
+			 </div>
+		{% endif %}
+	</div>
+{% endblock content %}
+
