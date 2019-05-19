@@ -1,6 +1,8 @@
 from django.conf import settings
 
 from django import forms
+
+from events.models import Event
 from detector.model.model import detect_language
 
 
@@ -17,6 +19,13 @@ class TextForm(forms.Form):
             detected_language = detect_language(language_text)
             if detected_language:
                 detected_language = settings.ISO_TO_LANGUAGE.get(detected_language)
+
+            # Create new event and save it
+            event = Event(
+                detected_languege=detected_language,
+                query_text=language_text)
+            event.save()
+
         except Exception as e:
             # simplified error handling in essens
             # error should be logged somewhere and

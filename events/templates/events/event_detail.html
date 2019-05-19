@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{{ object.detected_languege }}{% endblock title %}
+
+{% block content %}
+	<div>
+		<p>Detected Language: {{object.detected_languege}}</p>
+		<p>Text Searched: {{ object.query_text }}</p>
+		<p class="date">Quered at: {{ object.created|date}}</p>
+	</div>
+	
+{% endblock content %}
