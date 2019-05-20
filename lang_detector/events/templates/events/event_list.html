@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Event List{% endblock title %}
+
+{% block content %}
+		
+	<h1>Events List:</h1>
+	<div class="container float-left">
+		{% for event in events %}
+			<div class="clearfix">
+				<a href="{% url 'events:detail' pk=event.id %}">
+					<p class="float-left"><strong>Detected Language:</strong> {{event.detected_languege}}</p></a>
+				<p class="float-right">{{ event.created }}</p>
+			</div>
+			<hr>
+		{% empty %}
+			No Events registered yet.
+		{% endfor %}
+	</div>
+
+{% endblock content %}
