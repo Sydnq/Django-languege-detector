@@ -5,7 +5,7 @@
 {% block content %}
 		
 	<h1>Events List:</h1>
-	<div class="container">
+	<div class="container float-left">
 		{% for event in events %}
 			<div class="clearfix">
 				<a href="{% url 'events:detail' pk=event.id %}">

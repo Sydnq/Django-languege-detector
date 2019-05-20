@@ -2,10 +2,10 @@
 {% block title %}{{ object.detected_languege }}{% endblock title %}
 
 {% block content %}
-	<div>
-		<p>Detected Language: {{object.detected_languege}}</p>
-		<p>Text Searched: {{ object.query_text }}</p>
-		<p class="date">Quered at: {{ object.created|date}}</p>
+	<div class="container float-left">
+		<p><strong>Detected Language:</strong> {{object.detected_languege}}</p>
+		<p><strong>Text Searched:</strong> {{ object.query_text }}</p>
+		<p class="date"><strong>Created at:</strong> {{ object.created|date}}</p>
 	</div>
 	
 {% endblock content %}

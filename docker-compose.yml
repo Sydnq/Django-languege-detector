@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  languege-detector:
+    build: .
+    volumes:
+      - .:/src
+    ports:
+      - "8000:8000"
