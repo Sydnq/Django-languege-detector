@@ -7,6 +7,9 @@ class Event(models.Model):
     query_text = models.TextField(blank=True)
     created = models.DateField(auto_now_add=True, db_index=True)
 
+    class Meta:
+        ordering = ['-created']
+
     def __str__(self):
         return self.detected_languege
 
